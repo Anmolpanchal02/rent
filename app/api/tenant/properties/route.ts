@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { connectDB } from '@/lib/db'
 import Property from '@/lib/models/Property'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/tenant/properties
  * Browse and filter properties (public access)
