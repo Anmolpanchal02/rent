@@ -7,6 +7,7 @@ import { AppHeader } from '@/components/app-header'
 
 export default function Home() {
   const [featuredProperties, setFeaturedProperties] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     fetchFeaturedProperties()
@@ -14,6 +15,7 @@ export default function Home() {
 
   const fetchFeaturedProperties = async () => {
     try {
+      setIsLoading(true)
       const response = await fetch('/api/tenant/properties')
       if (response.ok) {
         const data = await response.json()
@@ -21,6 +23,8 @@ export default function Home() {
       }
     } catch (error) {
       console.error('Failed to fetch properties:', error)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -148,7 +152,29 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProperties.length > 0 ? featuredProperties.map((prop, i) => (
+          {isLoading ? (
+            // Loading skeleton
+            Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg animate-pulse">
+                <div className="h-48 bg-gray-300 dark:bg-gray-700"></div>
+                <div className="p-4 space-y-3">
+                  <div className="h-6 bg-gray-300 dark:bg-gray-700 rounded w-3/4"></div>
+                  <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/2"></div>
+                  <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+                  <div className="flex gap-2">
+                    <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-16"></div>
+                    <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-16"></div>
+                    <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-16"></div>
+                  </div>
+                  <div className="flex items-center gap-2 pt-2">
+                    <div className="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+                    <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-24"></div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : featuredProperties.length > 0 ? (
+            featuredProperties.map((prop, i) => (
             <Link key={prop._id} href={`/properties/${prop._id}`}>
               <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
                 <div className="h-48 relative overflow-hidden">
@@ -195,7 +221,8 @@ export default function Home() {
                 </div>
               </div>
             </Link>
-          )) : (
+          ))
+          ) : (
             <div className="col-span-4 text-center py-12">
               <div className="text-6xl mb-4">🏠</div>
               <p className="text-gray-600 dark:text-gray-400">No properties available yet</p>
