@@ -14,6 +14,9 @@ export async function GET(req: NextRequest) {
     }
 
     await connectDB()
+     
+
+    
 
     // Get all messages where user is sender or receiver
     const messages = await Message.find({
