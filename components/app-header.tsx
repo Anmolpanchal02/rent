@@ -39,12 +39,12 @@ export function AppHeader({ title = '🏠 Smart Rental', links = [], transparent
   }, [])
 
   // Links for non-logged in users
-  const guestLinks = [
+  const guestLinks: Array<{ href: string; label: string; icon?: string; active?: boolean }> = [
     { href: '/properties', label: 'Search', icon: '🔍' },
   ]
 
   // Links for tenant users
-  const tenantLinks = [
+  const tenantLinks: Array<{ href: string; label: string; icon?: string; active?: boolean }> = [
     { href: '/properties', label: 'Browse', icon: '🔍' },
     { href: '/favorites', label: 'Favorites', icon: '❤️' },
     { href: '/messages', label: 'Messages', icon: '💬' },
@@ -52,7 +52,7 @@ export function AppHeader({ title = '🏠 Smart Rental', links = [], transparent
   ]
 
   // Links for owner users
-  const ownerLinks = [
+  const ownerLinks: Array<{ href: string; label: string; icon?: string; active?: boolean }> = [
     { href: '/dashboard', label: 'Dashboard', icon: '📊' },
     { href: '/properties/manage', label: 'Properties', icon: '🏢' },
     { href: '/messages', label: 'Messages', icon: '💬' },
@@ -60,7 +60,7 @@ export function AppHeader({ title = '🏠 Smart Rental', links = [], transparent
   ]
 
   // Links for admin users
-  const adminLinks = [
+  const adminLinks: Array<{ href: string; label: string; icon?: string; active?: boolean }> = [
     { href: '/admin', label: 'Admin', icon: '👑' },
     { href: '/properties', label: 'Browse', icon: '🔍' },
     { href: '/messages', label: 'Messages', icon: '💬' },
@@ -68,7 +68,7 @@ export function AppHeader({ title = '🏠 Smart Rental', links = [], transparent
   ]
 
   // Determine which links to show
-  let displayLinks = guestLinks
+  let displayLinks: Array<{ href: string; label: string; icon?: string; active?: boolean }> = guestLinks
   
   if (!isLoggedIn) {
     displayLinks = guestLinks
