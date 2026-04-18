@@ -72,23 +72,15 @@ export default function ManagePropertiesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900">
-      <AppHeader 
-        transparent
-        links={[
-          { href: '/dashboard', label: 'Dashboard', icon: '📊' },
-          { href: '/properties/manage', label: 'Properties', icon: '🏢', active: true },
-          { href: '/messages', label: 'Messages', icon: '💬' },
-          { href: '/profile', label: 'Profile', icon: '👤' }
-        ]}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <AppHeader transparent />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
             <h2 className="text-4xl font-serif font-bold text-white mb-2">🏢 My Properties</h2>
-            <p className="text-white/80">Manage your property listings</p>
+            <p className="text-white/80 dark:text-white/60">Manage your property listings</p>
           </div>
           <Link href="/properties/create">
             <Button className="bg-red-500 hover:bg-red-600 text-white font-semibold">

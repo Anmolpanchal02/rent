@@ -150,24 +150,16 @@ export default function CreatePropertyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900">
-      <AppHeader 
-        transparent
-        links={[
-          { href: '/dashboard', label: 'Dashboard', icon: '📊' },
-          { href: '/properties/manage', label: 'Properties', icon: '🏢' },
-          { href: '/messages', label: 'Messages', icon: '💬' },
-          { href: '/profile', label: 'Profile', icon: '👤' }
-        ]}
-      />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <AppHeader transparent />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
         <div className="mb-8">
           <h2 className="text-4xl font-serif font-bold text-white mb-2">➕ Add New Property</h2>
-          <p className="text-white/80">List your property and connect with genuine tenants</p>
+          <p className="text-white/80 dark:text-white/60">List your property and connect with genuine tenants</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-lg p-8 border border-white/20">
+        <form onSubmit={handleSubmit} className="bg-white/10 dark:bg-white/5 backdrop-blur-xl rounded-2xl shadow-lg p-8 border border-white/20 dark:border-white/10">
           {error && (
             <div className="mb-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-200 px-4 py-3 rounded-lg text-sm">
               {error}

@@ -62,7 +62,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <AppHeader 
         transparent
         links={[
@@ -77,7 +77,7 @@ export default function ProfilePage() {
         {/* Page Title */}
         <div className="mb-8">
           <h2 className="text-4xl font-serif font-bold text-white mb-2">👤 Profile Settings</h2>
-          <p className="text-white/80">Manage your account information and preferences</p>
+          <p className="text-white/80 dark:text-white/60">Manage your account information and preferences</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
