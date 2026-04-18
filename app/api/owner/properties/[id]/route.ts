@@ -3,6 +3,8 @@ import { authMiddleware, requireRole, AuthenticatedRequest } from '@/lib/middlew
 import { connectDB } from '@/lib/db'
 import Property from '@/lib/models/Property'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/owner/properties/[id]
  * Get a single property by ID

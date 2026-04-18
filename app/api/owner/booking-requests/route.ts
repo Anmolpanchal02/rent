@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { authMiddleware, requireRole, AuthenticatedRequest } from '@/lib/middleware/auth'
 
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/owner/booking-requests
  * Get booking requests for owner's properties
