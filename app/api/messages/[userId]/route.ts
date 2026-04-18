@@ -3,6 +3,8 @@ import { verifyAuth } from '@/lib/middleware/auth'
 import { connectDB } from '@/lib/db'
 import { Message } from '@/lib/models'
 
+export const dynamic = 'force-dynamic'
+
 // GET /api/messages/[userId] - Get conversation with specific user
 export async function GET(
   req: NextRequest,

@@ -3,6 +3,8 @@ import { verifyAuth } from '@/lib/middleware/auth'
 import { connectDB } from '@/lib/db'
 import { User } from '@/lib/models'
 
+export const dynamic = 'force-dynamic'
+
 // GET /api/favorites - Get user's favorite properties
 export async function GET(req: NextRequest) {
   try {

@@ -4,6 +4,8 @@ import { connectDB } from '@/lib/db'
 import { Booking } from '@/lib/models'
 // import Razorpay from 'razorpay'
 
+export const dynamic = 'force-dynamic'
+
 // Initialize Razorpay (uncomment when keys are available)
 // const razorpay = new Razorpay({
 //   key_id: process.env.RAZORPAY_KEY_ID!,
